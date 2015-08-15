@@ -63,6 +63,7 @@ var winningMovementBoard = [
 // if find 3 same user move, finish game and give one point to user. Send to starting again.
 // if not continue
 console.log(empty_grid.length);
+
 function getMovement()
 {
   for(i = 0 ; i < empty_grid.length; i++)
