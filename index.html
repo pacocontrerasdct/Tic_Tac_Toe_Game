@@ -3,36 +3,41 @@
 <head>
   <title>TIC TAC TOE GAME</title>
   <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link href='http://fonts.googleapis.com/css?family=Oleo+Script:400,700' rel='stylesheet' type='text/css'>
   
 </head>
 <body>
   <div id="container">
     <header>
       <h1>Tic Tac Toe Game</h1>
-      <h2>Rules: In turns, two players add TICS (X) or TACS (O) to the board once at a time. To win, one player have to make 3 of his marks in a row, column or diagonal. Let's play!!!</h2>
+      <h3>Rules: In turns, two players add TICS (X) or TACS (O) to the board once at a time. To win, one player have to make 3 of his marks in a row, column or diagonal. Let's play!!!</h3>
     </header>
-    <div id="board">
-      <div id="firstRow" class="row">
-        <div class="input" id="r1-c1" name="r1-c1"></div>
-        <div class="input" id="r1-c2" name="r1-c2"></div>
-        <div class="input" id="r1-c3" name="r1-c3"></div>
-      </div>
+    <main>
+      <div id="board">
+        <div id="firstRow" class="row">
+          <div class="input" id="r1-c1" name="r1-c1"></div>
+          <div class="input" id="r1-c2" name="r1-c2"></div>
+          <div class="input" id="r1-c3" name="r1-c3"></div>
+        </div>
 
-      <div id="secondRow" class="row">
-        <div class="input" id="r2-c1" name="r2-c1"></div>
-        <div class="input" id="r2-c2" name="r2-c2"></div>
-        <div class="input" id="r2-c3" name="r2-c3"></div>        
-      </div>
+        <div id="secondRow" class="row">
+          <div class="input" id="r2-c1" name="r2-c1"></div>
+          <div class="input" id="r2-c2" name="r2-c2"></div>
+          <div class="input" id="r2-c3" name="r2-c3"></div>        
+        </div>
 
-      <div id="thrirdRow" class="row">
-        <div class="input" id="r3-c1" name="r3-c1"></div>
-        <div class="input" id="r3-c2" name="r3-c2"></div>
-        <div class="input" id="r3-c3" name="r3-c3"></div>        
+        <div id="thrirdRow" class="row">
+          <div class="input" id="r3-c1" name="r3-c1"></div>
+          <div class="input" id="r3-c2" name="r3-c2"></div>
+          <div class="input" id="r3-c3" name="r3-c3"></div>        
+        </div>
+        <button id="reseting" class="button-reset" type="button">Reset game</button>
+        <button id="quitting" class="quit-reset" type="button">Quit game</button>
       </div>
-    </div>
+    </main>
     <footer>
-      <h2>Score:</h2>
-      <p>Player X won: </p><p id="scoreX">0</p><p> - Player O won: </p><p id="scoreO">0</p><p> - Ties: </p><p id="scoreT">0</p>
+      <h2>
+      <p>Score: Player X won: </p><p id="scoreX">0</p><p> - Player O won: </p><p id="scoreO">0</p><p> - Ties: </p><p id="scoreT">0</p></h2>
     </footer>
   </div> 
 </body>

@@ -5,16 +5,21 @@ body{
    background-color: #FFF;
    margin: 0;
    font-size:62.5%;
+   font-family: 'Oleo Script', cursive, Arial;
 }
 h1{
    font-size: 3.2em;
+   color: white;
+   margin-bottom: -10px;
 }
 h2{
-   font-size: 1.8em;
+   font-size: 1em;
    padding: 0 50px;
 }
 h3{
    font-size: 1.6em;
+   letter-spacing: 0.2em;
+   font-style: italic;
 }
 p{
    display: inline;
@@ -25,13 +30,13 @@ div{
    padding: 0;
 }
 header{
-   background-color: #FFD;
-   width: 100%;
+   background-color: #3cb0fd;
+   padding: 0 75px;
    display: inline-block;
    text-align: center;
 }
 footer{
-   background-color: #FFD;
+   background-color: #3498db;
    width: 100%;
    margin-top: 25px;
    display: inline-block;
@@ -63,9 +68,7 @@ footer{
    font-size: 3.5em;
    text-align: middle;
    display: table;
-   pointer-events: none;
 }
-
 .input {
    width: 80px;
    height: 80px;
@@ -76,24 +79,25 @@ footer{
    text-align: center;
    display: inline-block;
 }
-/*
-.noInput {
-   background-color: transparent;
-   border-style: none;
-   font-size: inherit;
-   text-align: center;
-   margin: 0px;
-   display: inline-block;
-   vertical-align: super;
+.input:hover {
+   background-color: #dedede;
 }
-*/
+.button-reset, .quit-reset {
+  font-family: Arial;
+  letter-spacing: 0.1em;
+  color: #FFF;
+  font-size: 1.5em;
+  background-color: #3498db;
+  margin-top: 15px;
+  padding: 10px 15px;
+  text-decoration: none;
+}
 
-#scoreX{
-   color: red
+.button-reset:hover, .quit-reset:hover {
+  background-color: #3cb0fd;
+  text-decoration: none;
 }
-#scoreO{
-   color: green;
-}
-#scoreT{
-   color: blue;
+
+#scoreX, #scoreO, #scoreT{
+   color: white;
 }

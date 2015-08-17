@@ -1,4 +1,4 @@
-// Empty Grid to reset game when one user win or tie happens
+// Empty Array (grid) to reset game when one user win or tie happens
 ///////////////////////////////////////
 var empty_grid = [
     "r1-c1", "r1-c2", "r1-c3",
@@ -18,6 +18,9 @@ var winner_combinations = [
     ["r1-c1", "r2-c2", "r3-c3"],// Winning Crosses
     ["r1-c3", "r2-c2", "r3-c1"]
 ];
+//  Array for score results: Xs, Os, Ts
+/////////////////////////////////////
+var scoring = [ 0, 0, 0];
 
 // Saving player selection: Save at both arrays (newGameBoard copy of empty_grid,
 // and in winningMovementBoard copy of winner_combinations)
@@ -67,55 +70,77 @@ function checkingForEndGame(newGameBoard){
   return endOfGame;
 };
 
+
+
+// Reseting game
+//////////////////////////////////////////////
+function buttonReset(){
+  var buttonResetting = document.getElementById("reseting");
+  clickButton.addEventListener("click", function()
+  {
+    // Control Variables
+    /////////////////////////////
+    var scoreX = 0;
+    var scoreO = 0;
+    var scoreT = 0;
+    // Declare new variables to deal in every new game
+      var newGameBoard = empty_grid;
+      var winningMovementBoard = winner_combinations;
+    // By default always 'O' player is going to start:
+    // I'm going to compare against var 'X'   
+      var turnXorO = 'X';
+      var squareId;
+
+      newGame(scoreX, scoreO, scoreT, newGameBoard, winningMovementBoard, turnXorO, squareId);
+  });
+};
+
 // Updating Score function
 ////////////////////////////////////////////////
 function updateScore(turnXorO){
   switch(turnXorO){
     case 'X':
-      score = 'scoreX';
-      winner = scoreX + 1;
+      scorer = 'scoreX'; // who
+      scoring[0] =+ 1; // Update array
+      winner = scoring[0]; // Update in HTML
       break;
     case 'O':
       score = 'scoreO';
-      winner = scoreO + 1;
+      scoring[1] =+ 1;
+      winner = scoring[1];
       break;
     case 'T':
       score = 'scoreT';
-      winner = scoreT + 1;
+      scoring[2] =+ 1;
+      winner = scoring[2];
       break;
   }
-
-  update = document.getElementById(score);
+  update = document.getElementById(score); // Update in HTML
   update.innerHTML = winner;
 };
 
-// Control Variables
-/////////////////////////////
-var scoreX = 0;
-var scoreO = 0;
-var scoreT = 0;
-var squareId0;
-var squareId1;
-var squareId2;
-var squareId3;
+function newGame(){  
 
-function newGame(){
+  // Control Variables
+  /////////////////////////////
+  var scoreX = 0;
+  var scoreO = 0;
+  var scoreT = 0;
   // Declare new variables to deal in every new game
-  var newGameBoard = empty_grid;
-  var winningMovementBoard = winner_combinations;
+    var newGameBoard = empty_grid;
+    var winningMovementBoard = winner_combinations;
   // By default always 'O' player is going to start:
   // I'm going to compare against var 'X'   
-  var turnXorO = 'X';
-  var squareId;
+    var turnXorO = 'X';
+    var squareId;
 
   // Place listeners inside of Divs, or Squares
-  placingListeners(newGameBoard, winningMovementBoard, turnXorO, empty_grid);
+  placingListeners(newGameBoard, winningMovementBoard, turnXorO);
 };
 
 // PLacing Listeners events in every div's tag class type
-function placingListeners(newGameBoard, winningMovementBoard, turnXorO, empty_grid){
-
-    var empty_grid = [
+function placingListeners(newGameBoard, winningMovementBoard, turnXorO){
+var empty_grid = [
     "r1-c1", "r1-c2", "r1-c3",
     "r2-c1", "r2-c2", "r2-c3",
     "r3-c1", "r3-c2", "r3-c3"
@@ -134,13 +159,13 @@ function placingListeners(newGameBoard, winningMovementBoard, turnXorO, empty_gr
         if(player === 'won'){
           // Updating score
           updateScore(turnXorO);
-          //alert('Player ' + turnXorO + ' won');
+          alert('Player ' + turnXorO + ' won');
           newGame();
         }
         else if(endOfGame === 1){
           // Updating score
           updateScore(turnXorO);
-          //alert('Nobody won this game');
+          alert('Nobody won this game');
           newGame();
         }
         else{}
@@ -163,13 +188,13 @@ function placingListeners(newGameBoard, winningMovementBoard, turnXorO, empty_gr
         if(player === 'won'){
           // Updating score
           updateScore(turnXorO);
-          //alert('Player ' + turnXorO + ' won');
+          alert('Player ' + turnXorO + ' won');
           newGame();
         }
         else if(endOfGame === 1){
           // Updating score
           updateScore(turnXorO);
-          //alert('Nobody won this game');
+          alert('Nobody won this game');
           newGame();
         }
         else{}
@@ -192,13 +217,13 @@ function placingListeners(newGameBoard, winningMovementBoard, turnXorO, empty_gr
         if(player === 'won'){
           // Updating score
           updateScore(turnXorO);
-          //alert('Player ' + turnXorO + ' won');
+          alert('Player ' + turnXorO + ' won');
           newGame();
         }
         else if(endOfGame === 1){
           // Updating score
           updateScore(turnXorO);
-          //alert('Nobody won this game');
+          alert('Nobody won this game');
           newGame();
         }
         else{}
@@ -221,13 +246,13 @@ function placingListeners(newGameBoard, winningMovementBoard, turnXorO, empty_gr
         if(player === 'won'){
           // Updating score
           updateScore(turnXorO);
-          //alert('Player ' + turnXorO + ' won');
+          alert('Player ' + turnXorO + ' won');
           newGame();
         }
         else if(endOfGame === 1){
           // Updating score
           updateScore(turnXorO);
-          //alert('Nobody won this game');
+          alert('Nobody won this game');
           newGame();
         }
         else{}
@@ -250,13 +275,13 @@ function placingListeners(newGameBoard, winningMovementBoard, turnXorO, empty_gr
         if(player === 'won'){
           // Updating score
           updateScore(turnXorO);
-          //alert('Player ' + turnXorO + ' won');
+          alert('Player ' + turnXorO + ' won');
           newGame();
         }
         else if(endOfGame === 1){
           // Updating score
           updateScore(turnXorO);
-          //alert('Nobody won this game');
+          alert('Nobody won this game');
           newGame();
         }
         else{}
@@ -279,13 +304,13 @@ function placingListeners(newGameBoard, winningMovementBoard, turnXorO, empty_gr
         if(player === 'won'){
           // Updating score
           updateScore(turnXorO);
-          //alert('Player ' + turnXorO + ' won');
+          alert('Player ' + turnXorO + ' won');
           newGame();
         }
         else if(endOfGame === 1){
           // Updating score
           updateScore(turnXorO);
-          //alert('Nobody won this game');
+          alert('Nobody won this game');
           newGame();
         }
         else{}
@@ -308,13 +333,13 @@ function placingListeners(newGameBoard, winningMovementBoard, turnXorO, empty_gr
         if(player === 'won'){
           // Updating score
           updateScore(turnXorO);
-          //alert('Player ' + turnXorO + ' won');
+          alert('Player ' + turnXorO + ' won');
           newGame();
         }
         else if(endOfGame === 1){
           // Updating score
           updateScore(turnXorO);
-          //alert('Nobody won this game');
+          alert('Nobody won this game');
           newGame();
         }
         else{}
@@ -337,13 +362,13 @@ function placingListeners(newGameBoard, winningMovementBoard, turnXorO, empty_gr
         if(player === 'won'){
           // Updating score
           updateScore(turnXorO);
-          //alert('Player ' + turnXorO + ' won');
+          alert('Player ' + turnXorO + ' won');
           newGame();
         }
         else if(endOfGame === 1){
           // Updating score
           updateScore(turnXorO);
-          //alert('Nobody won this game');
+          alert('Nobody won this game');
           newGame();
         }
         else{}
@@ -366,13 +391,13 @@ function placingListeners(newGameBoard, winningMovementBoard, turnXorO, empty_gr
         if(player === 'won'){
           // Updating score
           updateScore(turnXorO);
-          //alert('Player ' + turnXorO + ' won');
+          alert('Player ' + turnXorO + ' won');
           newGame();
         }
         else if(endOfGame === 1){
           // Updating score
           updateScore(turnXorO);
-          //alert('Nobody won this game');
+          alert('Nobody won this game');
           newGame();
         }
         else{}
